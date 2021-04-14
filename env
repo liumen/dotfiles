@@ -1,0 +1,51 @@
+# Seting up environment variable that are common to all shells
+
+
+# --------------------------------------------------
+# Search path for binaries
+# --------------------------------------------------
+append_path_if_exist() {
+  if [ -d "$1" ]; then
+    export PATH="$PATH:$1"
+  fi
+}
+
+prepend_path_if_exist() {
+  if [ -d "$1" ]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
+append_path_if_exist "$HOME/.local/bin"
+prepend_path_if_exist "$HOME/.bin"
+
+export PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/python3.9/site-packages"
+
+# --------------------------------------------------
+# Coloring options
+# --------------------------------------------------
+export TERM=xterm-256color
+#export COLORTERM=truecolor
+
+if command -v dircolors &> /dev/null; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	export LS_OPTIONS='--color=auto'
+fi
+
+
+# --------------------------------------------------
+# Coloring options
+# --------------------------------------------------
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export MYVIMRC=$HOME/.vimrc
+
+
+# --------------------------------------------------
+# Default editor
+# --------------------------------------------------
+if command -v "vim" &> /dev/null; then
+  export EDITOR=vim
+fi
+

@@ -1,0 +1,261 @@
+# ############################################
+# I3 CONFIG FILE (V4)
+#   _ _____                   
+#  (_)___ /_      ___ __ ___  
+#  | | |_ \ \ /\ / / '_ ` _ \ 
+#  | |___) \ V  V /| | | | | |
+#  |_|____/ \_/\_/ |_| |_| |_|
+#  
+# Please see http://i3wm.org/docs/userguide.html
+# for a complete reference!
+# ############################################
+
+# ------ GRUVBOX DARK PALETTE ------
+set_from_resource $bg    background #282828
+set_from_resource $fg    foreground #ebdbb2
+set_from_resource $dark    color8   #282828
+set_from_resource $ldark   color0   #928374
+set_from_resource $red     color1   #cc241d
+set_from_resource $lred    color9   #fb4934
+set_from_resource $green   color2   #98971a
+set_from_resource $lgreen  color10  #b8bb26
+set_from_resource $yellow  color3   #d79921
+set_from_resource $lyellow color11  #fabd2f
+set_from_resource $blue    color4   #458588
+set_from_resource $lblue   color12  #83a598
+set_from_resource $purple  color5   #b16286
+set_from_resource $purplel color13  #d3869b
+set_from_resource $aqua    color6   #689d6a
+set_from_resource $aqual   color14  #8ec07c
+set_from_resource $light   color15  #a89984
+set_from_resource $llight  color7   #ebdbb2
+# ----------------------------------
+
+# set monitor
+# set $monitor1 "VGA-0"
+
+# set $mod key
+set $mod Mod4
+
+# set font
+font pango: FantasqueSansMono Nerd Font, FontAwesome, Noto CJK CS 10px
+
+for_window [class="^.*"] border pixel 1
+gaps inner 10
+gaps outer 10
+
+# set workspace usage 
+# You can also set an icon on the workspace number
+#set $ws1 "1  "
+set $ws1    1
+set $ws2    2  
+set $ws3    3
+set $ws4    4
+set $ws5    5
+set $ws6    6
+set $ws7    7
+set $ws8    8
+set $ws9    9
+set $ws10   10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+bindsym Control+Mod1+t exec termite
+
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym Mod1+F4 kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d   exec --no-startup-id rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+
+# change focus
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left  move workspace to output left
+bindsym $mod+Shift+Down  move workspace to output down
+bindsym $mod+Shift+Up    move workspace to output up
+bindsym $mod+Shift+Right move workspace to output right
+
+# split in horizontal orientation
+bindsym $mod+Shift+backslash split h
+
+# split in vertical orientation
+bindsym $mod+minus split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)       
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit?' -b 'Logout' 'i3-msg exit' -b 'Shutdown' 'poweroff' -b 'Suspend' 'exec ~/.config/i3/fuzzy_lock.sh && systemctl suspend' -b 'Reboot' 'reboot' "
+
+# resize window
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+
+        bindsym Left  resize shrink width  10 px or 10 ppt
+        bindsym Down  resize grow   height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow   width  10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#--------------- My Key Bindings --------------------
+# i3lock
+bindsym Control+Mod1+l exec --no-startup-id ~/.config/i3/fuzzy_lock.sh
+
+# Audio controls via alsamixer
+bindsym XF86AudioRaiseVolume     exec amixer set 'Master' 2%+ unmute
+bindsym XF86AudioLowerVolume     exec amixer set 'Master' 2%- unmute
+bindsym XF86AudioMute            exec amixer -q -D pulse sset 'Master' toggle
+bindsym Control+Mod1+Shift+Prior exec ~/.config/i3/volume_control.sh 2% +
+bindsym Control+Mod1+Shift+Next  exec ~/.config/i3/volume_control.sh 2% -
+
+# Start i3bar to display a workspace bar
+
+
+# mount/umount storage device
+bindsym $mod+u mode "USBmount"
+mode "USBmount" {
+    bindsym m exec bash -i -c 'udiskie &', mode "default"
+    bindsym u exec bash -i -c 'udiskie-umount -a', mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# class                 border   backgrd    text    indicator child_border
+client.focused          $yellow  $yellow   $llight   $llight   $yellow
+client.focused_inactive $dark    $dark     $llight   $llight   $dark
+client.unfocused        $dark    $dark     $llight   $llight   $ldark
+client.urgent           $purple  $purple   $llight   $llight   $lpurple
+client.placeholder      $dark    $dark     $llight   $dark     $dark
+client.background       $ldark
+
+# application shortcuts
+# shortcut applications
+bindsym $mod+F3 exec thunar
+bindsym $mod+F4 workspace $ws4; exec qutebrowser
+bindsym $mod+F8 workspace $ws8; exec thunderbird
+bindsym $mod+Print exec gnome-screenshot -a
+
+# set specific windows to floating mode
+for_window [window_role="pop-up"]                   floating enable
+for_window [title="Figure"]                         floating enable #python figures
+for_window [class="Thunar"]                         floating enable
+for_window [class="Lxappearance"]                   floating enable
+for_window [class="Menu"]                           floating enable
+for_window [class="Nm-connection-editor"]           floating enable
+
+# assign program to workspace
+assign [class="terminal"]            $ws1
+assign [class="Gvim"]                $ws2
+assign [class="VSCodium"]            $ws2
+assign [class="Eclipse"]             $ws3
+assign [class="qutebrowser"]         $ws4
+assign [class="Google-chrome"]       $ws4
+assign [class="Zotero"]              $ws4
+assign [class="Libreoffice"]         $ws5
+assign [class="Octave"]              $ws7
+assign [title="ParaView"]            $ws7
+assign [class="Gimp"]                $ws7
+assign [class="Inkscape"]            $ws7
+assign [class="Thunderbird"]         $ws8
+assign [class="Microsoft Teams"]     $ws8
+assign [class="zoom"]                $ws8
+assign [class="vlc"]                 $ws9
+assign [class="Gnome-disks"]         $ws10
+assign [class="Gnome-font-viewer"]   $ws10
+assign [class="GParted"]             $ws10
+assign [class="Grub-customizer"]     $ws10
+assign [class="Menu"]                $ws10
+assign [class="Pavucontrol"]         $ws10
+assign [class="Blueman"]             $ws10
+
+
+# autostart application
+exec xautolock -time 5 -locker '~/.config/i3/fuzzy_lock.sh' & #lock screen after 5min of inactivity
+exec --no-startup-id picom &
+exec --no-startup-id ~/.config/i3/redshift.sh
+exec_always --no-startup-id dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$purple" -nf "$fg" -shrink  -lto 3 -nto 5 -cto 0 
+exec --no-startup-id dropbox start
+exec --no-startup-id nm-applet #networking
+exec --no-startup-id setxkbmap -option caps:ctrl_modifier #remap caps to none
+exec --no-startup-id xset +fp /home/wuqihang/.fonts
+exec --no-startup-id xset fp rehash
+exec --no-startup-id ~/.config/polybar/launch.sh 
+exec --no-startup-id ~/.config/i3/wallpaper.sh 

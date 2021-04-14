@@ -1,0 +1,11 @@
+[user]
+	email = wu.qihang@hotmail.com
+	name = WU,Qihang
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[push]
+	default = current
+[alias]
+	d = difftool

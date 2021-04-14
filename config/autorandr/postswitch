@@ -1,0 +1,4 @@
+#!/bin/bash
+$HOME/.config/i3/redshift.sh > /dev/null
+$HOME/.config/polybar/launch.sh & > /dev/null 
+notify-send -i display "Display profile: $AUTORANDR_CURRENT_PROFILE" 

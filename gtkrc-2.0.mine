@@ -1,0 +1,20 @@
+# eliminate white bars at the bottom and right of gvim window
+# WU,Qihang <wu.qihang@hotmail.com>
+# Last modified: 01 Jan 2019 09:51:08 AM*
+# put this file under ~/.gtkrc-2.0
+
+style "no-resize-handle"
+{
+    GtkWindow::resize-grip-height = 0
+    GtkWindow::resize-grip-width = 0
+}
+
+class "GtkWidget" style "no-resize-handle"
+
+style "vimfix" {
+	# match with bg color of vim colorscheme
+	bg[NORMAL] = "#282828"
+
+}
+widget "vim-main-window.*GtkForm" style "vimfix"
+

@@ -1,0 +1,56 @@
+set autoindent
+let mapleader="<SPACE>"
+
+"================================================
+" => KEY MAPPING
+"================================================
+" Fast saving and quit
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>w :w<cr>
+
+"swap start of line/first character
+noremap ^ 0
+noremap 0 ^
+
+nnoremap <cr> G
+vnoremap <cr> G
+
+nnoremap [b :bprevious<cr>
+nnoremap ]b :bnext<cr>
+
+" Disable highlight
+map <silent> <Leader><cr> :noh<cr>
+
+
+"================================================
+" => USER INTERFACE
+"================================================
+" Only have cursorline in current window and in normal window
+autocmd WinLeave * set nocursorline
+autocmd WinEnter * set cursorline
+autocmd InsertEnter * set nocursorline
+autocmd InsertLeave * set cursorline
+
+
+"================================================
+" => SEARCH AND VISUAL MODE
+"================================================
+set ignorecase " Ignore case when searching
+set smartcase " When searching try to be smart about cases
+set hlsearch " Highlight search results
+
+
+"================================================
+" => TEXT AND INDENTATION
+"================================================
+set shiftwidth=2
+set tabstop=2 "1 tab == 2 spaces
+set softtabstop=2
+set expandtab "Use spaces instead of tabs
+set smarttab "Be smart when using tabs ;)
+filetype indent on
+
+
+"================================================
+" => AUTOCMD
+"================================================

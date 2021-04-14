@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ `uname -s` == Darwin ]
+then
+  exec /usr/local/bin/ccls -init='{"clang":{"extraArgs":["-isystem", "/Library/Developer/CommandLineTools/usr/include/c++/v1","-isysroot","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"]}}' "$@"
+else
+  exec /usr/bin/ccls
+fi

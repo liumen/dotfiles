@@ -1,0 +1,18 @@
+#!/usr/bin/sh
+ORIGINAL=$1
+REPLACED=$2
+LINE_RANGE='1,5'
+SED_STRING=${LINE_RANGE}s/$ORIGINAL/$REPLACED/
+
+
+for file in $(find ./ -name '*.tex');
+do
+  # work on the file
+  echo "substituting $file"
+  sed -i ${SED_STRING} $file
+done
+
+
+
+
+

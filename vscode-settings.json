@@ -1,0 +1,28 @@
+{
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "window.titleBarStyle": "custom",
+    "editor.tabSize": 2,
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.fontFamily": "Source Code Pro",
+    "vim.leader": "<space>",
+    "vim.camelCaseMotion.enable": true,
+    "window.zoomLevel": 0,
+    "vim.vimrc.path": "$HOME/.config/vim/keymap.vim",
+    "vim.vimrc.enable": true,
+    "vim.smartRelativeLine": true,
+    "editor.lineNumbers": "relative",
+    "clangd.onConfigChanged": "restart",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "zenMode.hideStatusBar": false,
+    "output.smartScroll.enabled": false,
+    "cmake.default.generator": "Unix Makefiles",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+}

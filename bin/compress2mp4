@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# CRF is between 18 and 24
+# lower CRF, higher bitrate
+OPTIONS="-vcodec libx264 -crf 20"
+FFMPEG=ffmpeg
+POSTFIX=avi
+
+info() {
+  printf '\033[0;31m%s\033[0m\n' "$1"
+}
+
+for arg 
+do
+  filename=$arg
+  info "Processing file $filename"
+  $FFMPEG -i $filename $OPTIONS `basename  -s $POSTFIX $filename`mp4 > /dev/null
+  echo ""
+done
