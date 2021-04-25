@@ -53,30 +53,31 @@ URXvt.dark_background: DARK_BACKGROUND
 URxvt.background: BACKGROUND
 URxvt.foreground: FOREGROUND
 URxvt.colorUL: COLOR4
+URxvt.cursorColor: CURSORCOLOR
 
-! dark0 + gray
+! black
 URxvt.color0 : COLOR0
 URxvt.color8 : COLOR8
-! neutral_red + bright_red
+! red
 URxvt.color1 : COLOR1
 URxvt.color9 : COLOR9
-! neutral_green + bright_green
-URxvt.color2 :  COLOR2
+! green
+URxvt.color2  : COLOR2
 URxvt.color10 : COLOR10
-! neutral_yellow + bright_yellow
-URxvt.color3 :  COLOR3
+! yellow
+URxvt.color3  : COLOR3
 URxvt.color11 : COLOR11
-! neutral_blue + bright_blue
-URxvt.color4 :  COLOR4
+! blue
+URxvt.color4  : COLOR4
 URxvt.color12 : COLOR12
-! neutral_purple + bright_purple
-URxvt.color5 : COLOR5
+! magenta
+URxvt.color5  : COLOR5
 URxvt.color13 : COLOR13
-! neutral_aqua + faded_aqua
-URxvt.color6 : COLOR6
+! cyan
+URxvt.color6  : COLOR6
 URxvt.color14 : COLOR14
-! light4 + light1
-URxvt.color7 : COLOR7
+! white
+URxvt.color7  : COLOR7
 URxvt.color15 : COLOR15
 
 
