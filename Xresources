@@ -49,7 +49,7 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 !urxvt color scheme:
-URXvt.dark_background: DARK_BACKGROUND
+URxvt.dark_background: DARK_BACKGROUND
 URxvt.background: BACKGROUND
 URxvt.foreground: FOREGROUND
 URxvt.colorUL: COLOR4
@@ -80,12 +80,11 @@ URxvt.color14 : COLOR14
 URxvt.color7  : COLOR7
 URxvt.color15 : COLOR15
 
-
 rofi.color-window:BACKGROUND, BACKGROUND, BACKGROUND
 rofi.color-normal:BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR3
 rofi.color-active:BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR3
 rofi.color-urgent:BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR3
 rofi.display-window: Window
 rofi.show-icons: true
-rofi.font:FantasqueSansMono 12
+rofi.font:FantasqueSansMono Nerd Font 12
 rofi.lines:12

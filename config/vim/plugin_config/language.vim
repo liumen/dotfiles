@@ -20,7 +20,7 @@ if count(g:myvim_plugin_groups, 'language')
 
 
   " >> VIMTEX <<
-  nmap <localleader>ll :VimtexCompileSS<CR>
+  " nmap <localleader>ll :VimtexCompileSS<CR>
   let g:tex_flavor = 'latex' " or vimtex won't load
   let g:vimtex_fold_enabled = 0
   " let g:vimtex_compiler_latexmk = {'callback': 0}
@@ -35,6 +35,8 @@ if count(g:myvim_plugin_groups, 'language')
     \ ],
     \}
 
+  let g:vimtex_quickfix_method = 'pplatex'
+  
   if g:os == 'Linux'
     let g:vimtex_view_method = 'zathura'
   elseif g:os == 'Darwin'

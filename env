@@ -32,6 +32,8 @@ if command -v dircolors &> /dev/null; then
 	export LS_OPTIONS='--color=auto'
 fi
 
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 
 # --------------------------------------------------
 # Coloring options
@@ -41,6 +43,14 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 export MYVIMRC=$HOME/.vimrc
 
+# --------------------------------------------------
+#  VSCode
+# --------------------------------------------------
+export VSCODE_GALLERY_SERVICE_URL='https://marketplace.visualstudio.com/_apis/public/gallery'
+export VSCODE_GALLERY_CACHE_URL='https://vscode.blob.core.windows.net/gallery/index'
+export VSCODE_GALLERY_ITEM_URL='https://marketplace.visualstudio.com/items'
+export VSCODE_GALLERY_CONTROL_URL=''
+export VSCODE_GALLERY_RECOMMENDATIONS_URL=''
 
 # --------------------------------------------------
 # Default editor

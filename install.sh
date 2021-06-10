@@ -15,10 +15,9 @@ dotfiles=(bash_aliases bashrc \
   env \
   gtkrc-2.0.mine\
   gitconfig \
-  Xresources Xsession\
+  Xresources\
   tmux.conf tmux.conf.local tmux.colors \
   vimrc \
-  vscode-settings.json \
   vrapperrc \
   wallpaper \
   xinitrc xinputrc xprofile\
@@ -42,8 +41,11 @@ dotfiles=(bash_aliases bashrc \
     config/picom \
     config/polybar \
     config/powerline \
+    config/qpdfview \
+    config/qt5ct \
     config/qutebrowser\
     config/ranger \
+    config/vscode_user\
     config/termite \
     config/vim \
     config/zathura)
@@ -87,8 +89,8 @@ link_file() {
   local src=$dotroot/$1
 
     # if the file exist, move it backup dir
-    if [ -h $dst ]; then
-      rm -f $dst
+    if [ -L $dst ]; then
+      unlink $dst
     elif [ -f $dst ]; then
       mkdir -p $backupdir/
       mv -i $dst $backupdir/
@@ -139,6 +141,32 @@ copy_folder() {
     fi
   }
 
+
+setup_vscode() {
+  VSCODE_DIR=$HOME/.config/VSCodium/User
+  dotroot=`pwd`
+  for file in ./config/vscode_user/*; do
+    filename=$(basename -- $file)
+    backup_or_unlink $VSCODE_DIR/$filename
+    ln -s $dotroot/$file $VSCODE_DIR/$filename
+    success "Linked VSCode setting json file $VSCODE_DIR/$filename"
+  done
+}
+
+
+backup_or_unlink(){
+  dst=$1
+  # if the file exist, move it backup dir
+    if [ -L $dst ]; then
+      unlink $dst
+      warn "$dst unlinked"
+    elif [ -f $dst ] || [ -d $dst ]; then
+      mkdir -p $backupdir/
+      mv -i $dst $backupdir/
+      warn "$dst backed up to $backupdir"
+    fi
+}
+
 install_dot() {
   # backup existing files
   if [ -h $dotroot ]; then
@@ -185,6 +213,8 @@ install_dot() {
     for folder in ${dotdirs_copy[@]}; do
       copy_folder $folder
     done
+
+    setup_vscode
 
     # caching fonts
     info "Caching fonts"

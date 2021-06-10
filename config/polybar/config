@@ -27,6 +27,7 @@ background = ${xrdb:URxvt.color0}
 foreground = ${xrdb:URxvt.foreground}
 dark_grey = ${xrdb:URxvt.background}
 light_background = ${xrdb:URxvt.color8}
+cursorcolor = ${xrdb:URxvt.cursorColor}
 grey = ${xrdb:URxvt.color15}
 urgent = ${xrdb:URxvt.color13}
 alert = ${xrdb:URxvt.color1}
@@ -143,9 +144,9 @@ font-3 = "Font Awesome 5 Brands:pixelsize=10"
 ; Enable support for inter-process messaging
 enable-ipc = true
 
-modules-left = powermenu i3index rarrow_light2dark i3 rarrow_dark2light window_title rarrow_light2dark
+modules-left = i3index rarrow_light2dark i3 rarrow_dark2light window_title rarrow_light2dark
 modules-center =larrow_dark2light mpd rarrow_light2dark
-modules-right = larrow_dark2light  ethernet wireless larrow_light2dark memory larrow_dark2light temperature cpu_load larrow_light2dark pulseaudio larrow_dark2light date larrow_light2dark
+modules-right = larrow_dark2light  ethernet wireless larrow_light2dark memory larrow_dark2light filesystem cpu_load temperature larrow_light2dark pulseaudio larrow_dark2light date larrow_light2dark powermenu
 
 ; System tray settings
 tray-position = right
@@ -154,7 +155,7 @@ tray-maxsize = 16
 tray-background = ${colors.background}
 tray-offset-x = 0
 tray-offset-y = 0
-tray-padding = 0 
+tray-padding = 5
 tray-scale = 1.0
 
 
@@ -202,7 +203,7 @@ type = internal/cpu
 ;   <ramp-coreload>
 format = <label>
 label= " %percentage%%"
-format-padding = 1
+format-padding = 0
 format-background = ${colors.light_background}
 format-foreground = ${colors.aqua}
 
@@ -426,18 +427,18 @@ format-online-background = ${colors.light_background}
 type = custom/menu
 format-spacing = 1
 
-label-open = "  "
+label-open = " "
 label-open-foreground = ${colors.grey}
-label-open-background = ${colors.light_background}
+label-open-background = ${colors.background}
 label-close = 
 label-close-foreground = ${colors.grey}
-label-close-background = ${colors.light_background}
+label-close-background = ${colors.background}
 
 label-separator = |
 label-separator-foreground = ${colors.grey}
 
 format-padding = 0
-format-background = ${colors.light_background}
+format-background = ${colors.background}
 menu-0-0 = " "
 menu-0-0-exec = systemctl suspend
 menu-0-1 = " "
@@ -527,7 +528,7 @@ format-padding =
 ;   %temperature% (deprecated)
 ;   %temperature-c%   (default, temperature in °C)
 ;   %temperature-f%   (temperature in °F)
-label = %temperature-c%
+label = "%temperature-c% "
 label-background = ${colors.light_background}
 label-foreground = ${colors.aqua}
 
@@ -535,7 +536,7 @@ label-foreground = ${colors.aqua}
 ;   %temperature% (deprecated)
 ;   %temperature-c%   (default, temperature in °C)
 ;   %temperature-f%   (temperature in °F)
-label-warn = %temperature-c%
+label-warn = "%temperature-c% "
 label-warn-background = ${colors.light_background}
 label-warn-foreground = ${colors.alert}
 
@@ -615,7 +616,7 @@ type = internal/network
 interface = enp0s31f6
 interval = 1.0
 format-connected-background = ${colors.light_background}
-format-connected-foreground = ${colors.green}
+format-connected-foreground = ${colors.cursorcolor}
 label-connected = "  %downspeed%  %upspeed% "
 label-disconnected = ""
 unknown-as-up = true
@@ -625,8 +626,8 @@ type = internal/network
 interface = wlp6s0
 interval = 1.0
 format-connected-background = ${colors.light_background}
-format-connected-foreground = ${colors.green}
-label-connected = " %downspeed%  %upspeed% "
+format-connected-foreground = ${colors.cursorcolor}
+label-connected = "  %downspeed%  %upspeed% "
 label-disconnected = ""
 unknown-as-up = true
 

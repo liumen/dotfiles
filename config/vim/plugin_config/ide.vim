@@ -66,7 +66,8 @@ if count(g:myvim_plugin_groups, 'ide')
         \ ] }
   " cpp config files for includes
   let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
-  let g:syntastic_tex_checkers = ['lacheck', 'chktex', 'proselint']
+  " let g:syntastic_tex_checkers = ['lacheck', 'chktex', 'proselint']
+  let g:syntastic_tex_checkers = ['chktex', 'proselint']
   let syntastic_aggregate_errors = 1
   let g:syntastic_error_symbol = "✗"
   let g:syntastic_warning_symbol = "⚠"

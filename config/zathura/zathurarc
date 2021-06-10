@@ -11,7 +11,6 @@ set selection-clipboard clipboard
 
 
 # key bindings
-# map <C-[> abort # Still doesn't work :(
 map [normal]     <F11> toggle_fullscreen
 map [fullscreen] <F11> toggle_fullscreen
 map [normal]     <C-l> reload
@@ -53,6 +52,9 @@ map [fullscreen] <C-i> jumplist forward
 
 map [index] q quit
 
+set font "FantasqueSansMono Nerd Font  10"
+
+
 # colors
 set recolor true
 set default-bg "#282828"
@@ -70,6 +72,5 @@ set completion-highlight-bg "#6B8E23"
 # set highlight-active-color "#F0E68C"
 set notification-fg "#FFFFFF"
 set notification-bg "#32320F"
-
 
 set synctex true

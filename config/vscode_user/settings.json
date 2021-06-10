@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Gruvbox Dark Medium",
     "window.titleBarStyle": "custom",
     "editor.tabSize": 2,
     "[cpp]": {
@@ -25,4 +24,7 @@
     "cmake.default.generator": "Unix Makefiles",
     "C_Cpp.default.intelliSenseMode": "gcc-x64",
     "C_Cpp.intelliSenseEngine": "Disabled",
+    "editor.defaultFormatter": "xaver.clang-format",
+    "clang-format.language.objective-c.fallbackStyle": ">",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
 }

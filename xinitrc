@@ -54,6 +54,7 @@ eval 'dbus-launch --sh-syntax --exit-with-session'
 exec fcitx &
 
 # start i3 and keep it running
+# also enable logging
 if [ -f /usr/bin/i3 ]; then
-  exec i3
+  exec i3 -V -d all &>>  "$HOME/i3.log"
 fi

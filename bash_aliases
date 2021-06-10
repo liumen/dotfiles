@@ -8,6 +8,7 @@ alias cmake='cmake -H. -Bbuild -DCMAKE_EXPORT_COMPILE_COMMANDS=YES'
 alias mk='make -j$(nproc --all)'
 alias oct='octave-cli'
 alias vim='vim --servername vim' #necessary for vimtex backward search
+alias qpdfview='qpdfview --unique --instance texview'
 alias weather='curl wttr.in/kitchener'
 # alias tmux='tmux -2'
 alias yay='yay --mflags --skipinteg'

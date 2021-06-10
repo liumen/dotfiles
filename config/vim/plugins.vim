@@ -38,6 +38,8 @@ if count(g:myvim_plugin_groups, 'edit')
   Plug 'mbbill/undotree'
   Plug 'maxbrunsfeld/vim-yankstack'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'vim-scripts/fcitx.vim'
+  " Plug 'rhysd/vim-grammarous', {'for':'tex'}
   Plug 'scrooloose/nerdcommenter'
   Plug 'wellle/targets.vim'
   Plug 'junegunn/vim-easy-align'
@@ -46,7 +48,6 @@ if count(g:myvim_plugin_groups, 'edit')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'kshenoy/vim-signature' "show marks in number column
-  Plug 'vim-scripts/fcitx.vim'
   Plug 'wellle/targets.vim'
 endif
 
