@@ -63,7 +63,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-bindsym Control+Mod1+t exec termite
+bindsym Control+Mod1+t exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -153,7 +153,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)       
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit?' -b 'Logout' 'i3-msg exit' -b 'Shutdown' 'poweroff' -b 'Suspend' 'exec ~/.config/i3/fuzzy_lock.sh && systemctl suspend' -b 'Reboot' 'reboot' "
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit?' -b 'Logout' 'i3-msg exit' -b 'Shutdown' 'poweroff' -b 'Suspend' 'exec ~/.config/i3/fuzzy_lock.sh ; sleep 0.5 ; systemctl suspend' -b 'Reboot' 'reboot' "
 
 # resize window
 mode "resize" {
@@ -208,15 +208,21 @@ client.background       $ldark
 
 # application shortcuts
 # shortcut applications
-bindsym $mod+F3 exec thunar
+bindsym $mod+F2 exec thunar
+bindsym $mod+F3 exec alacritty -e ranger 
 bindsym $mod+F4 workspace $ws4; exec qutebrowser
+bindsym $mod+F5 workspace $ws5; exec qpdfview
 bindsym $mod+F8 workspace $ws8; exec thunderbird
+bindsym $mod+F9 workspace $ws9; exec mpd; exec alacritty -e ncmpcpp
+bindsym $mod+F10 workspace $ws10;  exec pavucontrol
 bindsym $mod+Print exec gnome-screenshot -a
+bindsym Control+Mod1+r exec ~/.config/i3/redshift.sh
 
 # set specific windows to floating mode
+for_window [class="Thunar"]                         floating enable
+for_window [class="Zotero"]                         floating enable
 for_window [window_role="pop-up"]                   floating enable
 for_window [title="Figure"]                         floating enable #python figures
-for_window [class="Thunar"]                         floating enable
 for_window [class="Lxappearance"]                   floating enable
 for_window [class="Menu"]                           floating enable
 for_window [class="Nm-connection-editor"]           floating enable
@@ -228,8 +234,10 @@ assign [class="VSCodium"]            $ws2
 assign [class="Eclipse"]             $ws3
 assign [class="qutebrowser"]         $ws4
 assign [class="Google-chrome"]       $ws4
-assign [class="Zotero"]              $ws4
-assign [class="Libreoffice"]         $ws5
+assign [class="Thunar"]              $ws5
+assign [class="qpdfview"]            $ws5
+assign [class="Libreoffice"]         $ws6
+assign [class="Zathura"]             $ws6
 assign [class="Octave"]              $ws7
 assign [title="ParaView"]            $ws7
 assign [class="Gimp"]                $ws7
@@ -251,7 +259,6 @@ assign [class="Blueman"]             $ws10
 exec xautolock -time 5 -locker '~/.config/i3/fuzzy_lock.sh' & #lock screen after 5min of inactivity
 exec --no-startup-id picom &
 exec --no-startup-id ~/.config/i3/redshift.sh
-exec_always --no-startup-id dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$purple" -nf "$fg" -shrink  -lto 3 -nto 5 -cto 0 
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet #networking
 exec --no-startup-id setxkbmap -option caps:ctrl_modifier #remap caps to none
@@ -259,3 +266,4 @@ exec --no-startup-id xset +fp /home/wuqihang/.fonts
 exec --no-startup-id xset fp rehash
 exec --no-startup-id ~/.config/polybar/launch.sh 
 exec --no-startup-id ~/.config/i3/wallpaper.sh 
+exec_always --no-startup-id dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$purple" -nf "$fg" -shrink -lto 3 -nto 5 -cto 0 
